@@ -7,13 +7,13 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('C:\\Users\\win 10\\OneDrive\\Desktop\\dataset\\no_min_max_standardized_data_8.csv')
+data = pd.read_csv('no_min_max_standardized_data.csv')
 data = data.drop(columns=['date'])
 
 closing_price = data.iloc[:, 0]
-high = pd.read_csv('C:\\Users\\win 10\\OneDrive\\Desktop\\dataset\\high.csv', header=None)
-low = pd.read_csv('C:\\Users\\win 10\\OneDrive\\Desktop\\dataset\\low.csv', header=None)
-trend = pd.read_csv('C:\\Users\\win 10\\OneDrive\\Desktop\\dataset\\trend.csv', header=None)
+high = pd.read_csv('high.csv', header=None)
+low = pd.read_csv('low.csv', header=None)
+trend = pd.read_csv('trend.csv', header=None)
 
 data['a'] = trend
 data['b'] = low
@@ -225,7 +225,6 @@ plt.ylabel("Closing Price")
 plt.legend()
 plt.show()
 
-# ======================
 # Plot the change curve of RMSE
 plt.figure(figsize=(12, 6))
 plt.plot(train_rmse_list, label="Training Set RMSE")
